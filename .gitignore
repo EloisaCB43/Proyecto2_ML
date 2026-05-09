@@ -24,3 +24,6 @@ Thumbs.db
 
 # Variables de entorno
 .env
+
+# archivo temporal de excel
+~$*.xlsx
