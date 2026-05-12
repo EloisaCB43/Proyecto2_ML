@@ -1,0 +1,62 @@
+[
+  {
+    "trial_number": 8,
+    "rmse": 1869579.7358561463,
+    "params": {
+      "n_estimators": 430,
+      "max_depth": 11,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    "mlflow_run_id": "4ace396a1c2d4d2bbd444fbe6161e52f"
+  },
+  {
+    "trial_number": 0,
+    "rmse": 1875980.7619885711,
+    "params": {
+      "n_estimators": 108,
+      "max_depth": 14,
+      "min_samples_split": 7,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    "mlflow_run_id": "2d284cfca05d465f8b6565bad9d80991"
+  },
+  {
+    "trial_number": 3,
+    "rmse": 1886373.1453183645,
+    "params": {
+      "n_estimators": 106,
+      "max_depth": 20,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    "mlflow_run_id": "ebb7edda836146468a1732149e3b8bf6"
+  },
+  {
+    "trial_number": 6,
+    "rmse": 1897843.9846936848,
+    "params": {
+      "n_estimators": 304,
+      "max_depth": 20,
+      "min_samples_split": 11,
+      "min_samples_leaf": 7,
+      "max_features": null
+    },
+    "mlflow_run_id": "96a5b33b93f2439598335481eb2c84bb"
+  },
+  {
+    "trial_number": 7,
+    "rmse": 1969233.026723372,
+    "params": {
+      "n_estimators": 410,
+      "max_depth": 6,
+      "min_samples_split": 6,
+      "min_samples_leaf": 6,
+      "max_features": null
+    },
+    "mlflow_run_id": "1d8d72b5394d4acfa76f370bf78dc1c4"
+  }
+]
