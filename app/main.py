@@ -14,12 +14,27 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
 
 
+def default_form_data():
+    return {
+        "area": "",
+        "estrato": 3,
+        "banos": 1,
+        "habitaciones": 1,
+        "parqueaderos": 0,
+        "tipo_inmueble": "",
+        "estado": "",
+        "antiguedad": "",
+        "barrio_group": "",
+        "piso_cat": 1,
+    }
+
+
 @app.get("/")
 def home(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="index.html",
-        context={}
+        context={"form_data": default_form_data()},
     )
 
 
@@ -37,7 +52,19 @@ def predict(
     barrio_group: str = Form(...),
     piso_cat: str = Form(...),
 ):
-    
+    form_data = {
+        "area": area,
+        "estrato": estrato,
+        "banos": banos,
+        "habitaciones": habitaciones,
+        "parqueaderos": parqueaderos,
+        "tipo_inmueble": tipo_inmueble,
+        "estado": estado,
+        "antiguedad": antiguedad,
+        "barrio_group": barrio_group,
+        "piso_cat": piso_cat,
+    }
+
     data = pd.DataFrame(
         [{
             "Área Construida (m2)": area,
@@ -62,6 +89,7 @@ def predict(
     name="index.html",
     context={
         "prediction": prediction,
+        "form_data": form_data,
     },
 )
 
