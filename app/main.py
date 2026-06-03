@@ -17,7 +17,7 @@ templates = Jinja2Templates(directory="app/templates")
 def default_form_data():
     return {
         "area": "",
-        "estrato": 3,
+        "estrato": 1,
         "banos": 1,
         "habitaciones": 1,
         "parqueaderos": 0,

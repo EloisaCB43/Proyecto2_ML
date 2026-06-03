@@ -4,18 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuenHogar — Estimador de Arriendo</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Syne:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-straight/css/uicons-regular-straight.css" />
     <style>
       :root {
         --bg: #f7f6f3;
@@ -28,444 +19,60 @@
         --success: #1a7a4a;
         --hero-ink: #171411;
       }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Manrope", sans-serif;
-        background: var(--bg);
-        color: var(--accent);
-        min-height: 100vh;
-      }
-      nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1.25rem 2.5rem;
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-      }
-      .logo {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: 1.25rem;
-        letter-spacing: -0.03em;
-        color: var(--accent);
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .logo-dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--lime);
-        display: inline-block;
-        border: 2px solid var(--accent);
-      }
-      .nav-tag {
-        font-size: 0.72rem;
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        background: var(--bg);
-        padding: 0.3rem 0.8rem;
-        border-radius: 999px;
-        border: 1px solid var(--border);
-      }
-      .app-shell {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 2.5rem 1.5rem 4rem;
-      }
-      .app-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-        gap: 2rem;
-        align-items: center;
-        min-height: calc(100vh - 130px);
-      }
-      .hero {
-        text-align: center;
-        padding: 1rem 1.25rem 1rem 0;
-        max-width: 620px;
-        margin: 0 auto;
-        align-self: center;
-      }
-      .welcome-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: var(--lime);
-        color: var(--accent);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        padding: 0.35rem 1rem;
-        border-radius: 999px;
-        margin-bottom: 1.5rem;
-      }
-      .hero-kicker {
-        display: block;
-        margin-bottom: 0.55rem;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .hero h1 {
-        font-family: "Syne", sans-serif;
-        font-weight: 800;
-        font-size: clamp(2.5rem, 6vw, 4.6rem);
-        line-height: 0.95;
-        letter-spacing: -0.065em;
-        margin-bottom: 1.2rem;
-        color: var(--hero-ink);
-        text-wrap: balance;
-      }
-      .hero h1 .headline-soft {
-        display: block;
-        font-weight: 600;
-        letter-spacing: -0.05em;
-      }
-      .hero h1 .headline-accent {
-        display: inline-block;
-        margin-top: 0.15rem;
-        padding: 0.08em 0.24em 0.14em;
-        border-radius: 999px;
-        background: linear-gradient(
-          135deg,
-          rgba(200, 241, 53, 0.92),
-          rgba(227, 248, 139, 0.72)
-        );
-        box-shadow: 0 12px 30px rgba(200, 241, 53, 0.2);
-      }
-      .hero p {
-        color: var(--muted);
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.8;
-        max-width: 560px;
-        margin: 0 auto;
-        text-wrap: balance;
-      }
-      .form-wrapper {
-        max-width: none;
-        margin: 0;
-        padding: 0;
-      }
-      .form-card {
-        background: var(--white);
-        border-radius: 24px;
-        border: 1px solid var(--border);
-        overflow: hidden;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-      }
-      .form-section {
-        padding: 2rem 2.5rem;
-        border-bottom: 1px solid var(--border);
-      }
-      .form-section:last-of-type {
-        border-bottom: none;
-      }
-      .section-label {
-        font-size: 0.68rem;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 1.4rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      .section-label::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--border);
-      }
-      .form-label {
-        font-size: 0.78rem;
-        font-weight: 500;
-        color: #555;
-        margin-bottom: 0.4rem;
-        display: block;
-      }
-      .form-control,
-      .form-select {
-        border: 1.5px solid var(--border);
-        border-radius: 12px;
-        padding: 0.7rem 1rem;
-        font-size: 0.88rem;
-        font-family: "Manrope", sans-serif;
-        background: var(--bg);
-        color: var(--accent);
-        width: 100%;
-        transition:
-          border-color 0.18s,
-          box-shadow 0.18s,
-          background 0.18s;
-        appearance: none;
-      }
-      .form-control:focus,
-      .form-select:focus {
-        outline: none;
-        border-color: var(--accent);
-        background: var(--white);
-        box-shadow: 0 0 0 3px rgba(28, 28, 28, 0.07);
-      }
-      .invalid-feedback {
-        font-size: 0.73rem;
-        color: var(--red);
-        margin-top: 0.3rem;
-      }
-      .select-wrap {
-        position: relative;
-      }
-      .select-wrap::after {
-        content: "▾";
-        position: absolute;
-        right: 1rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.75rem;
-        color: var(--muted);
-        pointer-events: none;
-      }
-      .select-wrap .form-select {
-        padding-right: 2.5rem;
-      }
-      .stepper-group {
-        display: flex;
-        align-items: center;
-        border: 1.5px solid var(--border);
-        border-radius: 12px;
-        overflow: hidden;
-        background: var(--bg);
-        transition:
-          border-color 0.18s,
-          box-shadow 0.18s;
-      }
-      .stepper-group:focus-within {
-        border-color: var(--accent);
-        box-shadow: 0 0 0 3px rgba(28, 28, 28, 0.07);
-        background: var(--white);
-      }
-      .stepper-btn {
-        background: none;
-        border: none;
-        width: 42px;
-        height: 44px;
-        font-size: 1.1rem;
-        color: var(--muted);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition:
-          background 0.15s,
-          color 0.15s;
-        flex-shrink: 0;
-        font-family: "Manrope", sans-serif;
-      }
-      .stepper-btn:hover {
-        background: var(--accent);
-        color: var(--white);
-      }
-      .stepper-input {
-        flex: 1;
-        border: none;
-        background: transparent;
-        text-align: center;
-        font-size: 0.95rem;
-        font-family: "Manrope", sans-serif;
-        font-weight: 500;
-        color: var(--accent);
-        min-width: 0;
-        padding: 0;
-      }
-      .stepper-input:focus {
-        outline: none;
-      }
-      .submit-section {
-        padding: 2rem 2.5rem;
-        background: var(--accent);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.4rem;
-        flex-wrap: wrap;
-      }
-      .submit-section p {
-        color: rgba(255, 255, 255, 0.55);
-        font-size: 0.78rem;
-        font-weight: 300;
-        line-height: 1.5;
-        max-width: 320px;
-        margin: 0;
-      }
-      .btn-predict {
-        background: var(--lime);
-        color: var(--accent);
-        border: none;
-        border-radius: 12px;
-        padding: 0.85rem 2rem;
-        font-family: "Syne", sans-serif;
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.01em;
-        cursor: pointer;
-        transition:
-          opacity 0.18s,
-          transform 0.1s;
-        white-space: nowrap;
-        flex-shrink: 0;
-      }
-      .btn-predict:hover {
-        opacity: 0.88;
-      }
-      .btn-predict:active {
-        transform: scale(0.98);
-      }
-      .action-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 0.85rem;
-        flex-wrap: wrap;
-        min-width: 0;
-      }
-      .btn-clear {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.85rem 1.4rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: rgba(255, 255, 255, 0.08);
-        color: var(--white);
-        font-family: "Manrope", sans-serif;
-        font-size: 0.9rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition:
-          background 0.18s,
-          border-color 0.18s,
-          transform 0.1s;
-        white-space: nowrap;
-      }
-      .btn-clear:hover {
-        background: rgba(255, 255, 255, 0.14);
-        border-color: rgba(255, 255, 255, 0.28);
-      }
-      .btn-clear:active {
-        transform: scale(0.98);
-      }
-      .result-box {
-        max-width: none;
-        margin: 0 0 1.25rem;
-        padding: 0;
-      }
-      .result-card {
-        background: var(--white);
-        border-radius: 20px;
-        border: 1px solid var(--border);
-        padding: 2rem 2.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        flex-wrap: nowrap;
-        box-shadow: 0 16px 36px rgba(28, 28, 28, 0.06);
-      }
-      .result-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 16px;
-        background: linear-gradient(
-          135deg,
-          rgba(200, 241, 53, 0.22),
-          rgba(200, 241, 53, 0.5)
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        flex-shrink: 0;
-        color: var(--accent);
-        border: 1px solid rgba(28, 28, 28, 0.06);
-      }
-      .result-text p {
-        font-size: 0.75rem;
-        color: var(--muted);
-        font-weight: 400;
-        margin-bottom: 0.2rem;
-      }
-      .result-text {
-        flex: 1;
-        min-width: 0;
-      }
-      .result-placeholder-text {
-        font-size: 0.88rem;
-        color: var(--muted);
-        font-weight: 300;
-      }
-      .result-price {
-        font-family: "Manrope", sans-serif;
-        font-size: 2rem;
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        color: var(--success);
-      }
-      @media (max-width: 980px) {
-        .app-grid {
-          grid-template-columns: 1fr;
-          min-height: auto;
-        }
-        .hero {
-          max-width: none;
-          padding: 1rem 0 0.5rem;
-        }
-      }
-      @media (max-width: 600px) {
-        .app-shell {
-          padding: 1.5rem 1rem 3rem;
-        }
-        .form-section {
-          padding: 1.5rem;
-        }
-        .submit-section {
-          padding: 1.5rem;
-          flex-direction: column;
-          align-items: stretch;
-        }
-        .btn-predict {
-          text-align: center;
-        }
-        .action-group {
-          width: 100%;
-          flex-direction: column-reverse;
-          align-items: stretch;
-        }
-        .btn-clear {
-          text-align: center;
-        }
-        nav {
-          padding: 1rem 1.25rem;
-        }
-        .hero h1 {
-          font-size: clamp(2.35rem, 12vw, 3.6rem);
-        }
-        .result-card {
-          padding: 1.5rem;
-          gap: 0.85rem;
-        }
-      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Manrope", sans-serif; background: var(--bg); color: var(--accent); min-height: 100vh; }
+      nav { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 2.5rem; background: var(--white); border-bottom: 1px solid var(--border); }
+      .logo { font-family: "Syne", sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.03em; color: var(--accent); display: flex; align-items: center; gap: 0.4rem; }
+      .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); display: inline-block; border: 2px solid var(--accent); }
+      .nav-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--bg); padding: 0.3rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); }
+      .app-shell { max-width: 1280px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+      .app-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr); gap: 2rem; align-items: center; min-height: calc(100vh - 130px); }
+      .hero { text-align: center; padding: 1rem 1.25rem 1rem 0; max-width: 620px; margin: 0 auto; align-self: center; }
+      .welcome-pill { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--lime); color: var(--accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; }
+      .hero-kicker { display: block; margin-bottom: 0.55rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+      .hero h1 { font-family: "Syne", sans-serif; font-weight: 800; font-size: clamp(2.5rem, 6vw, 4.6rem); line-height: 0.95; letter-spacing: -0.065em; margin-bottom: 1.2rem; color: var(--hero-ink); text-wrap: balance; }
+      .hero h1 .headline-soft { display: block; font-weight: 600; letter-spacing: -0.05em; }
+      .hero h1 .headline-accent { display: inline-block; margin-top: 0.15rem; padding: 0.08em 0.24em 0.14em; border-radius: 999px; background: linear-gradient(135deg, rgba(200,241,53,0.92), rgba(227,248,139,0.72)); box-shadow: 0 12px 30px rgba(200,241,53,0.2); }
+      .hero p { color: var(--muted); font-size: 1rem; font-weight: 400; line-height: 1.8; max-width: 560px; margin: 0 auto; text-wrap: balance; }
+      .form-wrapper { max-width: none; margin: 0; padding: 0; }
+      .form-card { background: var(--white); border-radius: 24px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,0.05); }
+      .form-section { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); }
+      .form-section:last-of-type { border-bottom: none; }
+      .section-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.4rem; display: flex; align-items: center; gap: 0.5rem; }
+      .section-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+      .form-label { font-size: 0.78rem; font-weight: 500; color: #555; margin-bottom: 0.4rem; display: block; }
+      .form-control, .form-select { border: 1.5px solid var(--border); border-radius: 12px; padding: 0.7rem 1rem; font-size: 0.88rem; font-family: "Manrope", sans-serif; background: var(--bg); color: var(--accent); width: 100%; transition: border-color 0.18s, box-shadow 0.18s, background 0.18s; appearance: none; }
+      .form-control:focus, .form-select:focus { outline: none; border-color: var(--accent); background: var(--white); box-shadow: 0 0 0 3px rgba(28,28,28,0.07); }
+      .invalid-feedback { font-size: 0.73rem; color: var(--red); margin-top: 0.3rem; }
+      .select-wrap { position: relative; }
+      .select-wrap::after { content: "▾"; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--muted); pointer-events: none; }
+      .select-wrap .form-select { padding-right: 2.5rem; }
+      .stepper-group { display: flex; align-items: center; border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg); transition: border-color 0.18s, box-shadow 0.18s; }
+      .stepper-group:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(28,28,28,0.07); background: var(--white); }
+      .stepper-btn { background: none; border: none; width: 42px; height: 44px; font-size: 1.1rem; color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s, color 0.15s; flex-shrink: 0; font-family: "Manrope", sans-serif; }
+      .stepper-btn:hover { background: var(--accent); color: var(--white); }
+      .stepper-input { flex: 1; border: none; background: transparent; text-align: center; font-size: 0.95rem; font-family: "Manrope", sans-serif; font-weight: 500; color: var(--accent); min-width: 0; padding: 0; }
+      .stepper-input:focus { outline: none; }
+      .submit-section { padding: 2rem 2.5rem; background: var(--accent); display: flex; align-items: center; justify-content: space-between; gap: 1.4rem; flex-wrap: wrap; }
+      .submit-section p { color: rgba(255,255,255,0.55); font-size: 0.78rem; font-weight: 300; line-height: 1.5; max-width: 320px; margin: 0; }
+      .btn-predict { background: var(--lime); color: var(--accent); border: none; border-radius: 12px; padding: 0.85rem 2rem; font-family: "Syne", sans-serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.01em; cursor: pointer; transition: opacity 0.18s, transform 0.1s; white-space: nowrap; flex-shrink: 0; }
+      .btn-predict:hover { opacity: 0.88; }
+      .btn-predict:active { transform: scale(0.98); }
+      .action-group { display: flex; flex-direction: row; align-items: center; gap: 0.85rem; flex-wrap: wrap; min-width: 0; }
+      .btn-clear { display: inline-flex; align-items: center; justify-content: center; padding: 0.85rem 1.4rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.08); color: var(--white); font-family: "Manrope", sans-serif; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background 0.18s, border-color 0.18s, transform 0.1s; white-space: nowrap; }
+      .btn-clear:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.28); }
+      .btn-clear:active { transform: scale(0.98); }
+      .result-box { max-width: none; margin: 0 0 1.25rem; padding: 0; }
+      .result-card { background: var(--white); border-radius: 20px; border: 1px solid var(--border); padding: 2rem 2.5rem; display: flex; align-items: center; gap: 1rem; flex-wrap: nowrap; box-shadow: 0 16px 36px rgba(28,28,28,0.06); }
+      .result-icon { width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, rgba(200,241,53,0.22), rgba(200,241,53,0.5)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; color: var(--accent); border: 1px solid rgba(28,28,28,0.06); }
+      .result-text p { font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-bottom: 0.2rem; }
+      .result-text { flex: 1; min-width: 0; }
+      .result-placeholder-text { font-size: 0.88rem; color: var(--muted); font-weight: 300; }
+      .result-price { font-family: "Manrope", sans-serif; font-size: 2rem; font-weight: 500; letter-spacing: -0.02em; color: var(--success); }
+      input.no-numeric-arrows::-webkit-outer-spin-button, input.no-numeric-arrows::-webkit-inner-spin-button { -webkit-appearance: none;margin: 0; }
+      input[type=number].no-numeric-arrows { -moz-appearance: textfield; }
+      @media (max-width: 980px) { .app-grid { grid-template-columns: 1fr; min-height: auto; } .hero { max-width: none; padding: 1rem 0 0.5rem; } }
+      @media (max-width: 600px) { .app-shell { padding: 1.5rem 1rem 3rem; } .form-section { padding: 1.5rem; } .submit-section { padding: 1.5rem; flex-direction: column; align-items: stretch; } .btn-predict { text-align: center; } .action-group { width: 100%; flex-direction: column-reverse; align-items: stretch; } .btn-clear { text-align: center; } nav { padding: 1rem 1.25rem; } .hero h1 { font-size: clamp(2.35rem, 12vw, 3.6rem); } .result-card { padding: 1.5rem; gap: 0.85rem; } }
     </style>
   </head>
   <body>
@@ -484,29 +91,15 @@
             <span class="headline-soft">a unos</span>
             <span class="headline-accent">pasos</span>
           </h1>
-          <p>
-            Completa las características de la vivienda y obtén una referencia
-            rápida del canon de arriendo que podría tener en el mercado.
-          </p>
+          <p>Completa las características de la vivienda y obtén una referencia rápida del canon de arriendo que podría tener en el mercado.</p>
         </div>
 
         <div class="form-wrapper">
           <div class="result-box">
             <div class="result-card">
-              <div class="result-icon">
-                <i class="fi fi-rs-rocket-lunch" aria-hidden="true"></i>
-              </div>
+              <div class="result-icon"><i class="fi fi-rs-rocket-lunch" aria-hidden="true"></i></div>
               <div class="result-text">
-                {% if prediction %}
-                <p>Precio estimado de arriendo</p>
-                <div class="result-price">{{ prediction }}</div>
-                {% else %}
-                <p>Tu estimación aparecerá aquí</p>
-                <span class="result-placeholder-text"
-                  >Completa los campos y descubre cuánto podría valer tu
-                  arriendo.</span
-                >
-                {% endif %}
+                {% if prediction %}<p>Precio estimado de arriendo</p><div class="result-price">{{ prediction }}</div>{% else %}<p>Tu estimación aparecerá aquí</p><span class="result-placeholder-text">Completa los campos y descubre cuánto podría valer tu arriendo.</span>{% endif %}
               </div>
             </div>
           </div>
@@ -518,136 +111,39 @@
                 <div class="row g-3">
                   <div class="col-sm-6">
                     <label class="form-label">Área construida (m²)</label>
-                    <input
-                      type="number"
-                      step="0.1"
-                      min="1"
-                      class="form-control"
-                      name="area"
-                      value="{{ form_data.area }}"
-                      placeholder="Ej: 75"
-                      required
-                    />
+                    <input type="number" step="0.1" min="1" class="form-control" name="area" value="{{ form_data.area }}" placeholder="Ej: 75" required />
                     <div class="invalid-feedback">Mínimo 1 m²</div>
                   </div>
                   <div class="col-sm-6">
-                    <label class="form-label">Estrato (1 – 6)</label>
+                    <label class="form-label">Estrato (1 - 6)</label>
                     <div class="stepper-group">
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('estrato', -1, 1, 6)"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        class="stepper-input"
-                        name="estrato"
-                        id="estrato"
-                        value="{{ form_data.estrato }}"
-                        min="1"
-                        max="6"
-                        required
-                        onchange="clamp(this, 1, 6)"
-                      />
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('estrato', +1, 1, 6)"
-                      >
-                        +
-                      </button>
+                      <button type="button" class="stepper-btn" onclick="stepChange('estrato',-1,1,6)">−</button>
+                      <input type="number" class="stepper-input no-numeric-arrows" name="estrato" id="estrato" value="{{ form_data.estrato }}" min="1" max="6" required onchange="clamp(this,1,6)" />
+                      <button type="button" class="stepper-btn" onclick="stepChange('estrato',+1,1,6)">+</button>
                     </div>
                   </div>
                   <div class="col-4">
                     <label class="form-label">Baños</label>
                     <div class="stepper-group">
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('banos', -1, 1, 20)"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        class="stepper-input"
-                        name="banos"
-                        id="banos"
-                        value="{{ form_data.banos }}"
-                        min="1"
-                        max="20"
-                        required
-                        onchange="clamp(this, 1, 20)"
-                      />
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('banos', +1, 1, 20)"
-                      >
-                        +
-                      </button>
+                      <button type="button" class="stepper-btn" onclick="stepChange('banos',-1,1,20)">−</button>
+                      <input type="number" class="stepper-input no-numeric-arrows" name="banos" id="banos" value="{{ form_data.banos }}" min="1" max="20" required onchange="clamp(this,1,20)" />
+                      <button type="button" class="stepper-btn" onclick="stepChange('banos',+1,1,20)">+</button>
                     </div>
                   </div>
                   <div class="col-4">
                     <label class="form-label">Habitaciones</label>
                     <div class="stepper-group">
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('habitaciones', -1, 1, 20)"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        class="stepper-input"
-                        name="habitaciones"
-                        id="habitaciones"
-                        value="{{ form_data.habitaciones }}"
-                        min="1"
-                        max="20"
-                        required
-                        onchange="clamp(this, 1, 20)"
-                      />
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('habitaciones', +1, 1, 20)"
-                      >
-                        +
-                      </button>
+                      <button type="button" class="stepper-btn" onclick="stepChange('habitaciones',-1,1,20)">−</button>
+                      <input type="number" class="stepper-input no-numeric-arrows" name="habitaciones" id="habitaciones" value="{{ form_data.habitaciones }}" min="1" max="20" required onchange="clamp(this,1,20)" />
+                      <button type="button" class="stepper-btn" onclick="stepChange('habitaciones',+1,1,20)">+</button>
                     </div>
                   </div>
                   <div class="col-4">
-                    <label class="form-label">Parqueaderos (0–5)</label>
+                    <label class="form-label">Parqueaderos (0-5)</label>
                     <div class="stepper-group">
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('parqueaderos', -1, 0, 5)"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        class="stepper-input"
-                        name="parqueaderos"
-                        id="parqueaderos"
-                        value="{{ form_data.parqueaderos }}"
-                        min="0"
-                        max="5"
-                        required
-                        onchange="clamp(this, 0, 5)"
-                      />
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('parqueaderos', +1, 0, 5)"
-                      >
-                        +
-                      </button>
+                      <button type="button" class="stepper-btn" onclick="stepChange('parqueaderos',-1,0,5)">−</button>
+                      <input type="number" class="stepper-input no-numeric-arrows" name="parqueaderos" id="parqueaderos" value="{{ form_data.parqueaderos }}" min="0" max="5" required onchange="clamp(this,0,5)" />
+                      <button type="button" class="stepper-btn" onclick="stepChange('parqueaderos',+1,0,5)">+</button>
                     </div>
                   </div>
                 </div>
@@ -660,58 +156,10 @@
                     <label class="form-label">Tipo de inmueble</label>
                     <div class="select-wrap">
                       <select class="form-select" name="tipo_inmueble" required>
-                        <option
-                          value=""
-                          disabled
-                          {%
-                          if
-                          not
-                          form_data.tipo_inmueble
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Selecciona...
-                        </option>
-                        <option
-                          value="Apartamento"
-                          {%
-                          if
-                          form_data.tipo_inmueble
-                          ==
-                          "Apartamento"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Apartamento
-                        </option>
-                        <option
-                          value="Casa"
-                          {%
-                          if
-                          form_data.tipo_inmueble
-                          ==
-                          "Casa"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Casa
-                        </option>
-                        <option
-                          value="Apartaestudio"
-                          {%
-                          if
-                          form_data.tipo_inmueble
-                          ==
-                          "Apartaestudio"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Apartaestudio
-                        </option>
+                        <option value="" disabled {% if not form_data.tipo_inmueble %}selected{% endif %}>Selecciona...</option>
+                        <option value="Apartamento" {% if form_data.tipo_inmueble == "Apartamento" %}selected{% endif %}>Apartamento</option>
+                        <option value="Casa" {% if form_data.tipo_inmueble == "Casa" %}selected{% endif %}>Casa</option>
+                        <option value="Apartaestudio" {% if form_data.tipo_inmueble == "Apartaestudio" %}selected{% endif %}>Apartaestudio</option>
                       </select>
                     </div>
                     <div class="invalid-feedback">Selecciona un tipo</div>
@@ -720,71 +168,11 @@
                     <label class="form-label">Estado</label>
                     <div class="select-wrap">
                       <select class="form-select" name="estado" required>
-                        <option
-                          value=""
-                          disabled
-                          {%
-                          if
-                          not
-                          form_data.estado
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Selecciona...
-                        </option>
-                        <option
-                          value="Nuevo"
-                          {%
-                          if
-                          form_data.estado
-                          ==
-                          "Nuevo"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Nuevo
-                        </option>
-                        <option
-                          value="Excelente estado"
-                          {%
-                          if
-                          form_data.estado
-                          ==
-                          "Excelente estado"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Excelente estado
-                        </option>
-                        <option
-                          value="Buen estado"
-                          {%
-                          if
-                          form_data.estado
-                          ==
-                          "Buen estado"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Buen estado
-                        </option>
-                        <option
-                          value="Usado"
-                          {%
-                          if
-                          form_data.estado
-                          ==
-                          "Usado"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Usado
-                        </option>
+                        <option value="" disabled {% if not form_data.estado %}selected{% endif %}>Selecciona...</option>
+                        <option value="Nuevo" {% if form_data.estado == "Nuevo" %}selected{% endif %}>Nuevo</option>
+                        <option value="Excelente estado" {% if form_data.estado == "Excelente estado" %}selected{% endif %}>Excelente estado</option>
+                        <option value="Buen estado" {% if form_data.estado == "Buen estado" %}selected{% endif %}>Buen estado</option>
+                        <option value="Usado" {% if form_data.estado == "Usado" %}selected{% endif %}>Usado</option>
                       </select>
                     </div>
                     <div class="invalid-feedback">Selecciona el estado</div>
@@ -793,84 +181,12 @@
                     <label class="form-label">Antigüedad</label>
                     <div class="select-wrap">
                       <select class="form-select" name="antiguedad" required>
-                        <option
-                          value=""
-                          disabled
-                          {%
-                          if
-                          not
-                          form_data.antiguedad
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Selecciona...
-                        </option>
-                        <option
-                          value="menor a 1 año"
-                          {%
-                          if
-                          form_data.antiguedad
-                          ==
-                          "menor a 1 año"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Menor a 1 año
-                        </option>
-                        <option
-                          value="1 a 8 años"
-                          {%
-                          if
-                          form_data.antiguedad
-                          ==
-                          "1 a 8 años"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          1 a 8 años
-                        </option>
-                        <option
-                          value="9 a 15 años"
-                          {%
-                          if
-                          form_data.antiguedad
-                          ==
-                          "9 a 15 años"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          9 a 15 años
-                        </option>
-                        <option
-                          value="16 a 30 años"
-                          {%
-                          if
-                          form_data.antiguedad
-                          ==
-                          "16 a 30 años"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          16 a 30 años
-                        </option>
-                        <option
-                          value="más de 30 años"
-                          {%
-                          if
-                          form_data.antiguedad
-                          ==
-                          "más de 30 años"
-                          %}selected{%
-                          endif
-                          %}
-                        >
-                          Más de 30 años
-                        </option>
+                        <option value="" disabled {% if not form_data.antiguedad %}selected{% endif %}>Selecciona...</option>
+                        <option value="menor a 1 año" {% if form_data.antiguedad == "menor a 1 año" %}selected{% endif %}>Menor a 1 año</option>
+                        <option value="1 a 8 años" {% if form_data.antiguedad == "1 a 8 años" %}selected{% endif %}>1 a 8 años</option>
+                        <option value="9 a 15 años" {% if form_data.antiguedad == "9 a 15 años" %}selected{% endif %}>9 a 15 años</option>
+                        <option value="16 a 30 años" {% if form_data.antiguedad == "16 a 30 años" %}selected{% endif %}>16 a 30 años</option>
+                        <option value="más de 30 años" {% if form_data.antiguedad == "más de 30 años" %}selected{% endif %}>Más de 30 años</option>
                       </select>
                     </div>
                     <div class="invalid-feedback">Selecciona la antigüedad</div>
@@ -878,59 +194,24 @@
                   <div class="col-sm-6">
                     <label class="form-label">Piso</label>
                     <div class="stepper-group">
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('piso_cat', -1, 0, 60)"
-                      >
-                        −
-                      </button>
-                      <input
-                        type="number"
-                        class="stepper-input"
-                        name="piso_cat"
-                        value="{{ form_data.piso_cat }}"
-                        min="0"
-                        max="60"
-                        required
-                        onchange="clamp(this, 0, 60)"
-                      />
-                      <button
-                        type="button"
-                        class="stepper-btn"
-                        onclick="stepChange('piso_cat', +1, 0, 60)"
-                      >
-                          +
-                          
-                      </button>
+                      <button type="button" class="stepper-btn" onclick="stepChange('piso_cat',-1,0,60)">−</button>
+                      <input type="number" class="stepper-input no-numeric-arrows" name="piso_cat" id="piso_cat" value="{{ form_data.piso_cat }}" min="0" max="60" required onchange="clamp(this,0,60)" />
+                      <button type="button" class="stepper-btn" onclick="stepChange('piso_cat',+1,0,60)">+</button>
                     </div>
                   </div>
                   <div class="col-12">
                     <label class="form-label">Barrio</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="barrio_group"
-                      value="{{ form_data.barrio_group }}"
-                      placeholder="Ej: Laureles, Poblado, Belén..."
-
-                    />
+                    <input type="text" class="form-control" name="barrio_group" value="{{ form_data.barrio_group }}" placeholder="Ej: Laureles, Poblado, Belén..." required />
                     <div class="invalid-feedback">Ingresa el barrio</div>
                   </div>
                 </div>
               </div>
 
               <div class="submit-section">
-                <p>
-                  Estimación basada en datos del mercado inmobiliario de
-                  Medellín. Valor de referencia, no oficial.
-                </p>
-                          ==
-                          "action-group">
+                <p>Estimación basada en datos del mercado inmobiliario de Medellín. Valor de referencia, no oficial.</p>
+                <div class="action-group">
                   <a href="/" class="btn-clear">Limpiar formulario</a>
-                  <button type="submit" class="btn-predict">
-                    Tu precio aquí ->
-                  </button>
+                  <button type="submit" class="btn-predict">Tu precio aquí -></button>
                 </div>
               </div>
             </form>
@@ -938,8 +219,7 @@
         </div>
       </div>
     </div>
-                          ==
-                          
+
     <script>
       function stepChange(id, delta, min, max) {
         const el = document.getElementById(id);
@@ -951,15 +231,10 @@
         if (isNaN(val)) val = min;
         el.value = Math.min(max, Math.max(min, val));
       }
-      document
-        .getElementById("predForm")
-        .addEventListener("submit", function (e) {
-          if (!this.checkValidity()) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-          this.classList.add("was-validated");
-        });
+      document.getElementById("predForm").addEventListener("submit", function(e) {
+        if (!this.checkValidity()) { e.preventDefault(); e.stopPropagation(); }
+        this.classList.add("was-validated");
+      });
     </script>
   </body>
 </html>
